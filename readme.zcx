@@ -1,0 +1,23 @@
+'''programs for sphere uniform sampling'''
+
+icosphere 60 10 point.pdb
+    iteratively perform partition an inscribed icosahedron within a sphere 
+    with a radius of 10 A, until the inscribed "icosphere" has at least 60 
+    vertices. The actual number of output points may be more than 60.
+    "point.pdb" is the output PDB file.
+
+RandomSphereSampling 60 10 point.pdb
+    randomly put 60 points on a sphere with 10 A radius.
+
+FibonacciSphere 60 10 point.pdb
+    use spirical approximation to geneate a Fibbonacci Sphere of 60 points
+    with 10 A radius. Evenness is compromised when number of points is huge
+    (>10000) or small (<100).
+
+UniformSphereSampling 60 10 point.pdb
+    use Monte Carlo simulation guided by simple repulsive potential to
+    optimze distance of 60 points on a sphere with a radius of 10, such
+    that distance between points are maximized. most time consuming when
+    optimizing 200 points, which will take > 1 minute. When the number
+    points is >= 1000, no simulation will be performed. Intial conformation
+    generated FibonacciSphere, thus suffering the same unevenness issue.
